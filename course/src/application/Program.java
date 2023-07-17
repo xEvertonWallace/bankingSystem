@@ -55,12 +55,14 @@ public class Program {
 				System.out.println(account);
 			} else {
 				System.out.println(account);
+				System.out.println();
+				System.out.println("Finishing the program");
 				
 			}
 			
 		} else {
 			System.out.println();
-		System.out.println("Finishing the program");
+			System.out.println("Finishing the program");
 			}
 		
 		
