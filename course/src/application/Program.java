@@ -18,8 +18,8 @@ public class Program {
 		sc.nextLine();
 		String holder = sc.nextLine();
 		System.out.println("Is there an initial deposit (y/n)? ");
-		char response = sc.next().charAt(0);
-		if (response == 'y') {
+		char response1 = sc.next().charAt(0);
+		if (response1 == 'y') {
 			System.out.println("Enter initial deposit value: ");
 			double initialDeposit = sc.nextDouble();
 			account = new Account(number, holder, initialDeposit);	
@@ -33,18 +33,37 @@ public class Program {
 		System.out.println(account);
 		
 		System.out.println();
-		System.out.print("Enter a deposit value: ");
-		double depositValue = sc.nextDouble();
-		account.deposit(depositValue);
-		System.out.println("Update account data");
-		System.out.println(account);
+		System.out.print("You want to deposit an amount? (y/n)");
+		char response2 = sc.next().charAt(0);
+		if (response2 == 'y') {
+			System.out.println("Enter a deposit value: ");
+			double depositValue = sc.nextDouble();
+			account.deposit(depositValue);
+			System.out.println("Update account data");
+			System.out.println(account);		
+		}
+		else if(response2 == 'n' && account.getBalance() != 0.0){
+			System.out.println();
+			System.out.print("You want to withdraw an amount? (y/n)");
+			char response3 = sc.next().charAt(0);
+			if (response3 == 'y') {
+				System.out.println();
+				System.out.print("Enter a withdraw value: ");
+				double withdrawValue = sc.nextDouble();
+				account.deposit(withdrawValue);
+				System.out.println("Update account data");
+				System.out.println(account);
+			} else {
+				System.out.println(account);
+				
+			}
+			
+		} else {
+			System.out.println();
+		System.out.println("Finishing the program");
+			}
 		
-		System.out.println();
-		System.out.print("Enter a withdraw value: ");
-		double withdrawValue = sc.nextDouble();
-		account.deposit(withdrawValue);
-		System.out.println("Update account data");
-		System.out.println(account);
+		
 		
 		
 		sc.close();
