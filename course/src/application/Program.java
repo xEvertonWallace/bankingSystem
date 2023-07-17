@@ -12,15 +12,15 @@ public class Program {
 		Scanner sc = new Scanner(System.in);
 		Account account;
 		
-		System.out.println("Enter acount number: ");
+		System.out.print("Enter acount number: ");
 		int number = sc.nextInt();
-		System.out.println("Enter account holder: ");
+		System.out.print("Enter account holder: ");
 		sc.nextLine();
 		String holder = sc.nextLine();
-		System.out.println("Is there an initial deposit (y/n)? ");
+		System.out.print("Is there an initial deposit (y/n)? ");
 		char response1 = sc.next().charAt(0);
 		if (response1 == 'y') {
-			System.out.println("Enter initial deposit value: ");
+			System.out.print("Enter initial deposit value: ");
 			double initialDeposit = sc.nextDouble();
 			account = new Account(number, holder, initialDeposit);	
 		}
@@ -36,23 +36,25 @@ public class Program {
 		System.out.print("You want to deposit an amount? (y/n)");
 		char response2 = sc.next().charAt(0);
 		if (response2 == 'y') {
-			System.out.println("Enter a deposit value: ");
+			System.out.print("Enter a deposit value: ");
 			double depositValue = sc.nextDouble();
 			account.deposit(depositValue);
 			System.out.println("Update account data");
 			System.out.println(account);		
 		}
-		else if(response2 == 'n' && account.getBalance() != 0.0){
+		if(account.getBalance() != 0){
 			System.out.println();
-			System.out.print("You want to withdraw an amount? (y/n)");
+			System.out.println("You want to withdraw an amount? (y/n)");
 			char response3 = sc.next().charAt(0);
 			if (response3 == 'y') {
 				System.out.println();
 				System.out.print("Enter a withdraw value: ");
 				double withdrawValue = sc.nextDouble();
-				account.deposit(withdrawValue);
+				account.withDraw(withdrawValue);
 				System.out.println("Update account data");
 				System.out.println(account);
+				System.out.println();
+				System.out.println("Finishing the program");
 			} else {
 				System.out.println(account);
 				System.out.println();
@@ -61,14 +63,12 @@ public class Program {
 			}
 			
 		} else {
-			System.out.println();
-			System.out.println("Finishing the program");
-			}
-		
-		
-		
-		
+				System.out.println();
+				System.out.println("Finishing the program");
+		}
 		sc.close();
 	}
-
+	
 }
+
+
